@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.eclipse.cmf.occi.monitoring.design;singleton:
+ =true
+Bundle-Name: %pluginName
+Bundle-Version: 1.0.0.202211101859
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,org.eclipse.cmf.occi.core,org.eclipse.c
+ mf.occi.core.design,org.eclipse.core.runtime,org.eclipse.core.resourc
+ es,org.eclipse.sirius,org.eclipse.sirius.common.acceleo.aql
+Bundle-ManifestVersion: 2
+Bundle-Activator: org.eclipse.cmf.occi.monitoring.design.Activator
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Vendor: %providerName
+

@@ -1,0 +1,876 @@
+[comment encoding = UTF-8 /] 
+[module main('http://schemas.ogf.org/occi/core/ecore')] 
+
+[template public main(extension : Extension, targetPackageName : String, extendedPackageName : String)]
+[comment @main /]
+[generateConnectorFactory(extension, targetPackageName, extendedPackageName)/]
+[generateExtensionData(extension, targetPackageName)/]
+[comment][generateBIPModel(extension, targetPackageName, extendedPackageName)/][/comment]
+[generateMainTestFile(extension, targetPackageName, extendedPackageName)/]
+[generateSingletonConfFile(extension, targetPackageName, extendedPackageName)/]
+[for (kind : Kind | extension.kinds)]
+[if not (kind.term.equalsIgnoreCase('specification') or (kind.term.equalsIgnoreCase('gluebuilder')) 
+		or (kind.term.contains('scenario')) or (kind.term.contains('specification')) or (kind.term.contains('spec'))) ]
+	[generateConnectorClass(kind, extension, targetPackageName, extendedPackageName)/]
+[/if]
+[if (kind.term.equalsIgnoreCase('connectors')) or (kind.term.equalsIgnoreCase('gluebuilder')) or (kind.term.equalsIgnoreCase('Specification'))
+	or (kind.term.contains('scenario')) or (kind.term.contains('specification'))]
+[comment]	[generateListConnector(kind, targetPackageName)/][/comment]
+	[generateGlueBuilder(kind, extension, targetPackageName, extendedPackageName)/]
+[/if]
+[/for]
+
+[comment][for (mixin : Mixin | extension.mixins)]
+[generateConnectorClass(mixin, extension, targetPackageName, extendedPackageName)/]
+[/for][/comment]
+[generateLoggerProperties(targetPackageName)/]
+[/template]
+
+
+[template public generateLoggerProperties(targetPackageName : String)]
+[file (getPackagePath(targetPackageName).concat('Activator.java'), false, 'UTF-8')]
+package [targetPackageName/];
+
+import java.net.URL;
+import java.util.Properties;
+import org.apache.log4j.PropertyConfigurator;
+import org.eclipse.core.runtime.Plugin;
+import org.osgi.framework.BundleContext;
+
+public class Activator extends Plugin {
+
+    /**
+     * The plug-in ID.
+     */
+    public static final String PLUGIN_ID = "[targetPackageName/]";
+
+    /**
+     * The shared instance.
+     */
+    private static Activator plugin;
+    
+    /**
+     * The constructor.
+     */
+    public Activator() {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @see org.eclipse.core.runtime.Plugin#start(org.osgi.framework.BundleContext)
+     */
+    public void start(BundleContext context) throws Exception {
+        super.start(context);
+        plugin = this;
+        Properties log4jProperties = new Properties();
+        URL url = this.getBundle().getResource("log4j.properties");
+        log4jProperties.load(url.openStream());
+        PropertyConfigurator.configure(log4jProperties);
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @see org.eclipse.core.runtime.Plugin#stop(org.osgi.framework.BundleContext)
+     */
+    public void stop(BundleContext context) throws Exception {
+        plugin = null;
+        super.stop(context);
+    }
+
+    /**
+     * Returns the shared instance.
+     *
+     * @return the shared instance
+     */
+    public static Activator getDefault() {
+        return plugin;
+    }
+
+}
+[/file]
+[/template]
+
+[template public generateConnectorFactory(extension : Extension, targetPackageName : String, extendedPackageName : String)]
+[file (getPackagePath(targetPackageName).concat('ConnectorFactory.java'), false, 'UTF-8')]
+/**
+ * Copyright (c) 2016-2017 Inria
+ *  
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * - Philippe Merle <philippe.merle@inria.fr>
+ * - Faiez Zalila <faiez.zalila@inria.fr>
+ *
+ * Generated at [getNow()/] from [getFilePath(extension)/] by org.eclipse.cmf.occi.core.gen.connector
+ */
+package [targetPackageName/];
+
+/**
+ * Connector EFactory for the OCCI extension:
+ * - name: [extension.name/]
+ * - scheme: [extension.scheme/]
+ */
+public class ConnectorFactory extends [extendedPackageName/].impl.[toU1Case(extension.name.toLowerCase())/]FactoryImpl
+{
+[for (kind : Kind | extension.kinds)]
+[if not (kind.term.equalsIgnoreCase('specification') or (kind.term.equalsIgnoreCase('gluebuilder')) 
+		or (kind.term.contains('scenario')) or (kind.term.contains('specification')) or (kind.term.contains('spec'))) ]
+[generateCreateKindMethod(kind, extension, extendedPackageName)/]
+[/if]
+[/for]
+[for (mixin : Mixin | extension.mixins)]
+[if not (mixin.term.equalsIgnoreCase('specification') or (mixin.term.equalsIgnoreCase('gluebuilder')) 
+		or (mixin.term.contains('scenario')) or (mixin.term.contains('specification')) or (mixin.term.contains('spec'))) ]
+[generateCreateKindMethod(mixin, extension, extendedPackageName)/]
+[/if]
+[/for]
+}
+[/file]
+[/template]
+
+[template public generateCreateKindMethod(kind : Type, extension : Extension, extendedPackageName : String)]
+	/**
+	 * EFactory method for OCCI kind:
+	 * - scheme: [kind.scheme/]
+	 * - term: [kind.term/]
+	 * - title: [kind.title/]
+	 */
+	@Override
+[let kindClassName : String = toU1Case(kind.term)]
+	public [extendedPackageName/].[kindClassName/] create[kindClassName/]() {
+		return new [kind.name/]Connector();
+	}
+[/let]
+[/template]
+
+[template public generateConnectorClass(type : Type, extension : Extension, targetPackageName : String, extendedPackageName : String)]
+[file (getPackagePath(targetPackageName).concat(type.name).concat('Connector.java'), false, 'UTF-8')]
+/**
+ * Copyright (c) 2016-2017 Inria
+ *  
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * - Philippe Merle <philippe.merle@inria.fr>
+ * - Faiez Zalila <faiez.zalila@inria.fr>
+ * - Lê Khánh Trình <trinh.le-khanh@inria.fr>
+ *
+ * Generated at [getNow()/] from [getFilePath(extension)/] by org.eclipse.cmf.occi.core.gen.connector
+ */
+package [targetPackageName/];
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.javabip.annotations.*;
+import org.javabip.api.PortType;
+import org.javabip.api.BIPActor;
+import org.javabip.api.DataOut.AccessType;
+[let stateAttribute : Attribute = getStateAttribute(type)]
+import [extendedPackageName/].[stateAttribute.type.name/];
+[/let]
+
+[if (type.oclIsTypeOf(Kind))]
+[for (action : Action | type.oclAsType(Kind).actions->union(type.oclAsType(Kind)->closure(parent)->collect(k|k.actions)))]
+[for (attribute: Attribute| action.attributes)]
+[if not (attribute.type.eContainer().oclAsType(Extension).scheme.equalsIgnoreCase('http://schemas.ogf.org/occi/core#'))]
+import [action.eContainer().oclAsType(Type).getExtendedPackage()/].[getJavaTypeName(attribute)/]; 
+[/if]
+[/for]
+[/for]
+[else]
+[comment if it is a Mixin /]
+[for (action : Action | type.oclAsType(Mixin).getAllDependsOnMixins()->collect(m|m.oclAsType(Mixin).actions))]
+[for (attribute: Attribute| action.attributes)]
+[if not (attribute.type.eContainer().oclAsType(Extension).scheme.equalsIgnoreCase('http://schemas.ogf.org/occi/core#'))]
+import [action.eContainer().oclAsType(Type).getExtendedPackage()/].[getJavaTypeName(attribute)/]; 
+[/if]
+[/for]
+[/for]
+[/if]
+// [protected ('import')]
+		// TODO Add permanent libs
+// [/protected]
+/**
+ * Connector implementation for the OCCI kind:
+ * - scheme: [type.scheme/]
+ * - term: [type.term/]
+ * - title: [type.title/]
+ */
+[let kindClassName : String = toU1Case(type.term)]
+@Ports({
+// [protected ('Ports')]
+		// TODO Add permanent libs
+// [/protected]
+[if (type.oclIsTypeOf(Kind))]
+[for (action : Action | type.oclAsType(Kind).actions->union(type.oclAsType(Kind)->closure(parent)->collect(k|k.actions))) separator(', ')]
+[if (action.actiontype.toString().equalsIgnoreCase('spontaneous'))]
+@Port(name = "[action.name/]", type = PortType.spontaneous)
+[comment], @Port(name = "[action.term.substring(action.term.indexOf('s_') + 2)/]", type = PortType.enforceable)[/comment]
+[else]
+@Port(name = "[action.name/]", type = PortType.enforceable)
+[/if]
+[/for]
+[else]
+[for (action : Action | type.oclAsType(Mixin).getAllDependsOnMixins()->collect(m|m.oclAsType(Mixin).actions)) separator(', ')]
+[if (action.actiontype.toString().equalsIgnoreCase('spontaneous'))]
+@Port(name = "[action.name/]", type = PortType.spontaneous)
+[comment], @Port(name = "[action.term.substring(action.term.indexOf('s_') + 2)/]", type = PortType.enforceable)[/comment]
+[else]
+@Port(name = "[action.name/]", type = PortType.enforceable)
+[/if]
+[/for][/if]})
+[for (myfsm : FSM | type.fsm->union(type.oclAsType(Kind)->closure(parent)->collect(k|k.fsm)))]
+	[for (aState : State | myfsm.ownedState)]
+		[if (aState.initial)]
+@ComponentType(initial = "[aState.literal.name/]", name = "[targetPackageName/].[type.name/]")
+		[/if]
+	[/for]
+[/for]
+public class [type.name/]Connector extends [extendedPackageName/].impl.[kindClassName/]Impl
+{
+	/**
+	 * Initialize the logger.
+	 */
+	private static Logger LOGGER = LoggerFactory.getLogger([type.name/]Connector.class);
+	//[toU1Case(extension.name)/]Singleton instance = [toU1Case(extension.name)/]Singleton.getInstance();
+	// [protected ('variables')]
+		// TODO Add permanent variable
+	// [/protected]
+
+	// [protected (kindClassName.concat('connector_constructor'))]
+	/**
+	 * Constructs a [type.term/] connector.
+	 */
+	[type.name/]Connector()
+	{
+		//final BIPActor executor = instance.engine.register(this, getTitle(), true);
+		LOGGER.debug("Constructor called on " + this);
+		// TODO: Implement this constructor.
+	}
+	// [/protected]
+	[if(type.oclIsTypeOf(Kind))]
+	//
+	// OCCI CRUD callback operations.
+	//
+	
+	// [protected (kindClassName.concat('occiCreate'))]
+	/**
+	 * Called when this [type.name/] instance is completely created.
+	 */
+	@Override
+	public void occiCreate()
+	{
+		LOGGER.debug("occiCreate() called on " + this);
+		// TODO: Implement this callback or remove this method.
+	}
+	// [/protected]
+
+	// [protected (kindClassName.concat('_occiRetrieve_method'))]
+	/**
+	 * Called when this [type.name/] instance must be retrieved.
+	 */
+	@Override
+	public void occiRetrieve()
+	{
+		LOGGER.debug("occiRetrieve() called on " + this);
+		// TODO: Implement this callback or remove this method.
+	}
+	// [/protected]
+
+	// [protected (kindClassName.concat('_occiUpdate_method'))]
+	/**
+	 * Called when this [type.name/] instance is completely updated.
+	 */
+	@Override
+	public void occiUpdate()
+	{
+		LOGGER.debug("occiUpdate() called on " + this);
+		// TODO: Implement this callback or remove this method.
+	}
+	// [/protected]
+
+	// [protected (kindClassName.concat('occiDelete_method'))]
+	/**
+	 * Called when this [type.name/] instance will be deleted.
+	 */
+	@Override
+	public void occiDelete()
+	{
+		LOGGER.debug("occiDelete() called on " + this);
+		// TODO: Implement this callback or remove this method.
+	}
+	// [/protected]
+
+	//
+	// [type.name/] actions.
+	//
+[/if]
+
+[if (type.oclIsTypeOf(Kind))]
+[for (action : Action | type.oclAsType(Kind).actions->union(type.oclAsType(Kind)->closure(parent)->collect(k|k.actions)))]
+[comment]	// [protected (kindClassName.concat('_Kind_').concat(action.name).concat('_action'))][/comment]
+[generateActionMethod(action, type, extendedPackageName)/]
+[comment]	// [/protected][/comment]
+[/for]
+[else]
+
+[for (action : Action | type.oclAsType(Mixin).getAllDependsOnMixins()->collect(m|m.oclAsType(Mixin).actions))]
+[comment]	// [protected (kindClassName.concat('_Mixin_').concat(action.name).concat('_action'))][/comment]
+[generateActionMethod(action, type, extendedPackageName)/]
+[comment]	// [/protected][/comment]
+[/for][/if]
+	// [protected ('other functions')]
+	// [/protected]
+}	
+[/let]
+[/file]
+[/template]
+
+
+[template public generateActionMethod(action : Action, type : Type, extendedPackageName : String)]
+	
+	/**
+	 * Implement OCCI action:
+     * - scheme: [action.scheme/]
+     * - term: [action.name/]
+     * - title: [action.title/]
+	 */
+[comment]	[if (action.term.contains('s_'))]
+	@Transitions({
+	[if (type.oclIsTypeOf(Kind))]
+		[for (myfsm : FSM | type.fsm->union(type.oclAsType(Kind)->closure(parent)->collect(k|k.fsm)))]
+		[let lisTrans : Sequence(Transition) = myfsm.ownedState.outgoingTransition]
+		[for (trans : Transition | lisTrans)]
+			[if (trans.action.term.equalsIgnoreCase(action.term))]
+		@Transition(name = "[action.name/]", source = "[trans.source.literal.name/]", target = "['Pseudo'.concat(trans.target.literal.name)/]", guard = "['can'.concat(toU1Case(action.term))/]"),
+			[/if]
+		[/for]
+		[/let]
+		[/for]
+	[else]
+		[for (myfsm : FSM | type.oclAsType(Mixin).getAllDependsOnMixins()->collect(k|k.fsm))]
+		[let lisTrans : Sequence(Transition) = myfsm.ownedState.outgoingTransition]
+		[for (trans : Transition | lisTrans)]
+			[if (trans.action.term.equalsIgnoreCase(action.term))]
+		@Transition(name = "[action.name/]", source = "[trans.source.literal.name/]", target = "['Pseudo'.concat(trans.target.literal.name)/]", guard = "['can'.concat(toU1Case(action.term))/]"),
+			[/if]
+		[/for]
+		[/let]
+		[/for]
+	[/if]
+	})
+	//@Override
+	public void [action.name/]([for (parameter : Attribute | action.attributes) separator(', ')]final [getJavaTypeName(parameter)/] [parameter.name/][/for])
+	{
+		//[protected (action.term)]
+		LOGGER.debug("");
+			//[/protected]
+	}
+	
+	@Transitions({
+	[if (type.oclIsTypeOf(Kind))]
+		[for (myfsm : FSM | type.fsm->union(type.oclAsType(Kind)->closure(parent)->collect(k|k.fsm)))]
+		[let lisTrans : Sequence(Transition) = myfsm.ownedState.outgoingTransition]
+		[for (trans : Transition | lisTrans)]
+			[if (trans.action.term.equalsIgnoreCase(action.term))]
+		@Transition(name = "[action.term.substring(action.term.indexOf('s_') + 2)/]", source = "['Pseudo'.concat(trans.target.literal.name)/]", target = "[trans.target.literal.name/]", guard = "['can'.concat(toU1Case(action.term.substring(action.term.indexOf('s_') + 2)))/]"),
+			[/if]
+		[/for]
+		[/let]
+		[/for]
+	[else]
+		[for (myfsm : FSM | type.oclAsType(Mixin).getAllDependsOnMixins()->collect(k|k.fsm))]
+		[let lisTrans : Sequence(Transition) = myfsm.ownedState.outgoingTransition]
+		[for (trans : Transition | lisTrans)]
+			[if (trans.action.term.equalsIgnoreCase(action.term))]
+		@Transition(name = "[action.term.substring(action.term.indexOf('s_') + 2)/]", source = "['Pseudo'.concat(trans.target.literal.name)/]", target = "[trans.target.literal.name/]", guard = "['can'.concat(toU1Case(action.term.substring(action.term.indexOf('s_') + 2)))/]"),
+			[/if]
+		[/for]
+		[/let]
+		[/for]
+	[/if]
+	})
+	
+	public void [action.term.substring(action.term.indexOf('s_') + 2)/]([for (parameter : Attribute | action.attributes) separator(', ')]final [getJavaTypeName(parameter)/] [parameter.name/][/for])
+	{
+		//[protected ('real_'.concat(action.term))]
+		LOGGER.debug("Action [action.term.substring(action.term.indexOf('s_') + 2)/]([if (action.attributes->size() > 0)]"[for (parameter : Attribute | action.attributes)] + "[parameter.name/]=" + [parameter.name/][/for] + "[/if]) called on " + this);
+
+	[if (getStateAttribute(type).oclIsUndefined())]
+		// TODO: Implement how to [action.term.substring(action.term.indexOf('s_') + 2)/] this [type.name/].
+	[else]
+	[/if]
+		//[/protected]
+	}
+	
+	//[protected ('can'.concat(toU1Case(action.term)))]
+	@Guard(name = "['can'.concat(toU1Case(action.term))/]")
+	public boolean ['can'.concat(toU1Case(action.term))/](){
+		return true;
+	}
+
+	@Guard(name = "['can'.concat(toU1Case(action.term.substring(action.term.indexOf('s_') + 2)))/]")
+	public boolean ['can'.concat(toU1Case(action.term.substring(action.term.indexOf('s_') + 2)))/](){
+		return true;
+	}
+	//[/protected]
+	[else][/comment]
+	@Transitions({
+	[if (type.oclIsTypeOf(Kind))]
+		[for (myfsm : FSM | type.fsm->union(type.oclAsType(Kind)->closure(parent)->collect(k|k.fsm)))]
+		[let lisTrans : Sequence(Transition) = myfsm.ownedState.outgoingTransition]
+		[for (trans : Transition | lisTrans)]
+			[if (trans.action.term.equalsIgnoreCase(action.term))]
+		@Transition(name = "[action.name/]", source = "[trans.source.literal.name/]", target = "[trans.target.literal.name/]", guard = "['can'.concat(toU1Case(action.name))/]"),
+			[/if]
+		[/for]
+		[/let]
+		[/for]
+	[else]
+		[for (myfsm : FSM | type.oclAsType(Mixin).getAllDependsOnMixins()->collect(k|k.fsm))]
+		[let lisTrans : Sequence(Transition) = myfsm.ownedState.outgoingTransition]
+		[for (trans : Transition | lisTrans)]
+			[if (trans.action.term.equalsIgnoreCase(action.term))]
+		@Transition(name = "[action.name/]", source = "[trans.source.literal.name/]", target = "[trans.target.literal.name/]", guard = "['can'.concat(toU1Case(action.name))/]"),
+			[/if]
+		[/for]
+		[/let]
+		[/for]
+	[/if]
+	})
+	//@Override
+	//[protected (action.name)]
+	public void [action.name/]([for (parameter : Attribute | action.attributes) separator(', ')]final [getJavaTypeName(parameter)/] [parameter.name/][/for])
+	{
+		//instance.runningConfiguration();
+		LOGGER.debug("Action [action.name/]([if (action.attributes->size() > 0)]"[for (parameter : Attribute | action.attributes)] + "[parameter.name/]=" + [parameter.name/][/for] + "[/if]) called on " + this);
+
+[if (getStateAttribute(type).oclIsUndefined())]
+		// TODO: Implement how to [action.name/] this [type.name/].
+[else]
+[let stateAttribute : Attribute = getStateAttribute(type)]
+		// [type.name.toUpperFirst()/] State Machine.
+		switch(get[getJavaAttributeName(stateAttribute).toString().toU1Case()/]().getValue()) {
+[for (eEnumLiteral : EnumerationLiteral | getSourceStatesFromAnAction(action)->collect(state|state.oclAsType(State).literal))]
+
+		case [stateAttribute.type.name/].[eEnumLiteral.name.toUpperCase()/]_VALUE:
+			LOGGER.debug("Fire transition(state=[eEnumLiteral.name/], action=\"[action.name/]\")...");
+			// TODO Implement transition(state=[eEnumLiteral.name/], action="[action.name/]")
+[let targetLiterals : OrderedSet(EnumerationLiteral) = getTargetStatesFromAnAction(action)->collect(state|state.oclAsType(State).literal)->asOrderedSet()]
+[if targetLiterals->size()=1]
+			set[getJavaAttributeName(stateAttribute).toString().toU1Case()/]([stateAttribute.type.name/].[targetLiterals->first().oclAsType(EnumerationLiteral).name.toUpperCase()/]);
+[else]
+[for (eEnumLiteral2 : EnumerationLiteral | targetLiterals)]
+		[if targetLiterals->indexOf(eEnumLiteral2)=1]
+			if(true){
+				set[getJavaAttributeName(stateAttribute).toString().toU1Case()/]([stateAttribute.type.name/].[eEnumLiteral2.name.toUpperCase()/]);
+			}
+		[else]
+			else	
+				if(true){
+					set[getJavaAttributeName(stateAttribute).toString().toU1Case()/]([stateAttribute.type.name/].[eEnumLiteral2.name.toUpperCase()/]);
+				}
+		[/if]
+[/for]		
+[/if]
+[/let]
+			break;
+
+[/for]
+		default:
+			break;
+		}
+[/let]
+[/if]
+	}
+	//[/protected]
+	
+	//[protected ('can'.concat(toU1Case(action.name)))]
+	@Guard(name = "['can'.concat(toU1Case(action.name))/]")
+	public boolean ['can'.concat(toU1Case(action.name))/](){
+		return true;
+	}
+	//[/protected]
+[comment]	[/if][/comment]
+	
+[/template]
+
+
+[template public generateGlueBuilder(type : Type, extension : Extension, targetPackageName : String, extendedPackageName : String)]
+[file (getPackagePath(targetPackageName).concat('GlueBuilder_').concat(type.name).concat('.java'), false, 'UTF-8')]
+/**
+ * Copyright (c) 2016-2017 Inria
+ *  
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * - Lê Khánh Trình <trinh.le-khanh@inria.fr>
+ *
+ * Generated at [getNow()/] from [getFilePath(extension)/] by org.eclipse.cmf.occi.core.gen.connector
+ */
+package [targetPackageName/];
+
+import org.javabip.glue.GlueBuilder;
+
+public class GlueBuilder_[type.name/] extends GlueBuilder
+{
+	@Override
+	public void configure() {
+		[for (anno : Annotation | type.annotations)]
+		//[anno.value/]
+[genMacroAnnotation(anno)/]
+[if (anno.value.contains('data:'))]
+[genDataTransfer(anno)/]
+[/if]
+		[/for]
+		// [protected ('Developer policies')]
+		// TODO Declare fixed policies
+		// [/protected]
+	}
+}
+[/file]
+[/template]
+
+[comment]Generate Singleton class[/comment]
+[template public generateSingletonConfFile(extension : Extension, targetPackageName : String, extendedPackageName : String)]
+[file (getPackagePath(targetPackageName).concat(toU1Case(extension.name)).concat('Singleton.java'), false, 'UTF-8')]
+/**
+ * Copyright (c) 2016-2017 Inria
+ *  
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * - Lê Khánh Trình <trinh.le-khanh@inria.fr>
+ *
+ * Generated at [getNow()/] from [getFilePath(extension)/] by org.eclipse.cmf.occi.core.gen.connector
+ */
+package [targetPackageName/];
+
+import org.javabip.api.BIPEngine;
+import org.javabip.api.BIPGlue;
+import org.javabip.engine.factory.EngineFactory;
+
+import akka.actor.ActorSystem;
+
+public class [toU1Case(extension.name)/]Singleton
+{
+	private static [toU1Case(extension.name)/]Singleton singletonTP = null;
+	private ActorSystem system;
+    private EngineFactory engineFactory;
+    public static BIPEngine engine;
+	private boolean flagRun = false;
+
+	private [toU1Case(extension.name)/]Singleton() {
+    	initialize();
+	}
+    
+    public static [toU1Case(extension.name)/]Singleton getInstance() 
+    { 
+        if (singletonTP == null) 
+        	singletonTP = new [toU1Case(extension.name)/]Singleton(); 
+  
+        return singletonTP; 
+    } 
+    //---
+	public void initialize() {
+        system = ActorSystem.create("MySystem");
+        engineFactory = new EngineFactory(system);
+        
+        //BIPGlue bipGlue = new [toU1Case(extension.name)/]GlueBuilder().build();
+		BIPGlue bipGlue = new GlueBuilder_Specification().build();
+    	engine = engineFactory.create("myEngine", bipGlue);
+    	engine.specifyGlue(bipGlue);
+    	
+    }
+    
+    public void cleanup() {
+    	engineFactory.destroy(engine);
+        system.shutdown();
+    }
+    
+    public void runningConfiguration() {
+    	if (!flagRun) {
+    		flagRun = true;
+    		engine.start();
+    		System.out.println("[toU1Case(extension.name)/]Engine is starting");
+    		engine.execute();
+    		System.out.println("[toU1Case(extension.name)/]Engine is executing");
+    		
+    		try {
+    			Thread.sleep(1000);
+    			System.out.println("[toU1Case(extension.name)/]Engine finished sleeping");
+    		} catch (InterruptedException e) {
+    			e.printStackTrace();
+    		}
+    		
+    		engine.stop();
+    	}
+    }
+}
+[/file]
+[/template]
+
+[comment]Generate Main Test class[/comment]
+[template public generateMainTestFile(extension : Extension, targetPackageName : String, extendedPackageName : String)]
+[file (getPackagePath(targetPackageName).concat(toU1Case(extension.name)).concat('Test.java'), false, 'UTF-8')]
+/**
+ * Copyright (c) 2016-2017 Inria
+ *  
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ * - Philippe Merle <philippe.merle@inria.fr>
+ * - Lê Khánh Trình <trinh.le-khanh@inria.fr>
+ *
+ * Generated at [getNow()/] from [getFilePath(extension)/] by org.eclipse.cmf.occi.core.gen.connector
+ */
+package [targetPackageName/];
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import org.javabip.api.BIPActor;
+import org.javabip.api.BIPEngine;
+import org.javabip.api.BIPGlue;
+import org.javabip.engine.factory.EngineFactory;
+import org.javabip.glue.GlueBuilder;
+import akka.actor.ActorSystem;
+import org.apache.log4j.PropertyConfigurator;
+
+public class [toU1Case(extension.name)/]Test
+{
+	private ActorSystem system;
+    private EngineFactory engineFactory;
+    
+    private void initialize() {
+        system = ActorSystem.create("MySystem");
+        engineFactory = new EngineFactory(system);
+    }
+    
+    private void cleanup() {
+        system.shutdown();
+    }
+    
+    private BIPGlue createGlue(String bipGlueFilename) {
+		BIPGlue bipGlue = null;
+
+		InputStream inputStream;
+		try {
+			inputStream = new FileInputStream(bipGlueFilename);
+
+			bipGlue = GlueBuilder.fromXML(inputStream);
+
+		} catch (FileNotFoundException e) {
+
+			e.printStackTrace();
+		}
+		return bipGlue;
+	}
+    
+    public void running() {
+    	
+    	BIPGlue bipGlue = new GlueBuilder_Specification().build();
+    	
+    	BIPEngine engine = engineFactory.create("myEngine", bipGlue);
+    	
+    	
+    	// [protected ('BIP Actors')]
+		// TODO Declare Instances and BIPActor here
+		// [/protected]
+		engine.specifyGlue(bipGlue);
+		engine.start();
+		
+		engine.execute();
+		
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		engine.stop();
+		engineFactory.destroy(engine);
+		
+    }
+    
+    [createMainFunc()/]
+    	[toU1Case(extension.name)/]Test testTP = new [toU1Case(extension.name)/]Test();
+		PropertyConfigurator.configure("log4j.properties");
+		testTP.initialize();
+		testTP.running();
+		testTP.cleanup();
+    }
+}
+
+[/file]
+[/template]
+
+[template public generateExtensionData(extension : Extension, targetPackageName : String)]
+[file (getPackagePath(targetPackageName).concat(extension.name).concat('.xml'), false, 'UTF-8')]
+<extension name="[extension.name/]">
+[for (mixin : Mixin | extension.mixins)]
+	[generateComponentsInfor(mixin, extension, targetPackageName)/]
+[/for]
+[for (kind : Kind | extension.kinds)]
+	[if not (kind.term.contains('Scenario') or kind.term.contains('scenario') or kind.term.equalsIgnoreCase('Specification'))]
+	[generateComponentsInfor(kind, extension, targetPackageName)/]
+	[/if]
+	[if kind.term.equalsIgnoreCase('Specification')]
+	<annotations name="Specification">
+		[for (anno : Annotation | kind.annotations)]
+			<annotation id="[anno.key/]">[anno.value/]</annotation>
+		[/for]
+	</annotations>
+	[/if]
+[/for]
+</extension>
+[/file]
+[/template]
+
+[template public generateComponentsInfor(type : Type, extension : Extension, targetPackageName : String)]
+[if (type.oclIsTypeOf(Kind))]
+<class name="[type.name/]" parent="[type.oclAsType(Kind).parent.name/]">
+[comment]	<variables>[/comment]
+		[for (var : Attribute | type.oclAsType(Kind).attributes->union(type.oclAsType(Kind)->closure(parent)->collect(k|k.attributes)))]
+		<variable type="[var.type.name/]" name="[var.name/]" value="[var.default/]"/>
+		[/for]
+[comment]	</variables>[/comment]
+[comment]	<actions>[/comment]
+		[for (action : Action | type.oclAsType(Kind).actions->union(type.oclAsType(Kind)->closure(parent)->collect(k|k.actions)))]
+		<action name="[action.name/]"/>
+		[/for]
+[comment]	</actions>[/comment]
+[comment]	<places>[/comment]
+		[for (myfsm : FSM | type.fsm->union(type.oclAsType(Kind)->closure(parent)->collect(k|k.fsm)))]
+[comment]		[let listState : Sequence(State) = myfsm.ownedState][/comment]
+		[for (state : State | myfsm.ownedState)]
+		<place name="[state.literal.name/]" initial="[state.initial/]" final="[state.final/]"/>
+		[/for]
+[comment]		[/let][/comment]
+		[/for]
+[comment]	</places>[/comment]
+[comment]	<fsm>[/comment]
+		[for (myfsm : FSM | type.fsm->union(type.oclAsType(Kind)->closure(parent)->collect(k|k.fsm)))]
+		[let lisTrans : Sequence(Transition) = myfsm.ownedState.outgoingTransition]
+		[for (trans : Transition | lisTrans)]
+		<transition from="[trans.source.literal.name/]" to="[trans.target.literal.name/]" action="[action.name/]"/>
+		[/for]
+		[/let]
+		[/for]
+[comment]	</fsm>[/comment]
+</class>
+[else]
+<class name="[type.name/]" parent="[type.oclAsType(Mixin).getAllDependsOnMixins().name/]">
+[comment]	<variables>[/comment]
+		[for (var : Attribute | type.oclAsType(Mixin).getAllDependsOnMixins()->collect(k|k.attributes))]
+		<variable type="[var.type.name/]" name="[var.name/]" value="[var.default/]"/>
+		[/for]
+[comment]	</variables>[/comment]
+[comment]	<actions>[/comment]
+		[for (action : Action | type.oclAsType(Mixin).getAllDependsOnMixins()->collect(k|k.actions))]
+		<action name="[action.name/]"/>
+		[/for]
+[comment]	</actions>[/comment]
+[comment]	<fsm>[/comment]
+		[for (myfsm : FSM | type.oclAsType(Mixin).getAllDependsOnMixins()->collect(k|k.fsm))]
+		[let lisTrans : Sequence(Transition) = myfsm.ownedState.outgoingTransition]
+		[for (trans : Transition | lisTrans)]
+		<transition from="[trans.source.literal.name/]" to="[trans.target.literal.name/]" action="[action.name/]"/>
+		[/for]
+		[/let]
+		[/for]
+[comment]	</fsm>[/comment]
+</class>
+[/if]
+[/template]
+
+[comment the following query returns a set of states which are target of transitions containing the action "action"/]
+[query public getTargetStatesFromAnAction(action : Action) : Set(State) = getSourceStatesFromAnAction(action)->collect(sourceState|sourceState.oclAsType(State).outgoingTransition)->flatten()->select(tr|tr.oclAsType(Transition).action=action)->flatten()->collect(tr|tr.oclAsType(Transition).target)->asSet() /]
+[comment the following query returns a set of states which are source of transitions containing the action "action"/]
+[query public getSourceStatesFromAnAction(action : Action) : Set(State) = if (not action.eContainer().oclAsType(Type).fsm.oclIsUndefined()) then 
+																				action.eContainer().oclAsType(Type).fsm.ownedState->collect(ow|ow.oclAsType(State).outgoingTransition)->flatten()
+																				->select(tr| tr.action=action)->collect(tr|tr.oclAsType(Transition).source)->flatten()->asSet() else Set{} endif /]
+
+[query public getStateAttribute(kind : Type) : Attribute = kind.attributes->any(attribute : Attribute | attribute.name.endsWith('state') and attribute.type.oclIsTypeOf(EnumerationType)) /]
+
+[query public toU1Case(string : String) : String = string.substring(1,1).toUpperCase() + string.substring(2) /]
+
+[query public toU2Case(string : String) : String = string.substring(1,2).toUpperCase() + string.substring(3) /]
+
+[query public getAllDependsOnMixins (m: Mixin) : Sequence(Mixin) = if(m.depends->size() > 0 ) then Sequence{m}->union(depends->collect(m2|m2.oclAsType(Mixin).getAllDependsOnMixins())) else Sequence{m} endif/]
+
+[query public getPortContent(port : String) : String
+	= port.substring(1, port.indexOf('.')-1) + 'Connector.class, \"' + port.substring(port.indexOf('.')+1, port.indexOf(')')-1) + '\"' + port.substring(port.indexOf(')'))/]
+
+[query public removeBarrack(port : String) : String
+	= port.replaceAll('[()]', '')
+/]
+
+[query public getPortContentWithoutBarrack(port : String) : String
+	= port.substring(1, port.indexOf('.')-1) + 'Connector.class, \"' + port.substring(port.indexOf('.')+1, port.size()) + '\"'/]
+
+[query public getNow() : String
+	= invoke(
+	'org.eclipse.cmf.occi.core.gen.connector.services.GenUtils', 
+	'getNow()', 
+	Sequence{})/]
+
+[query public getExtendedPackage(type : Type) : String
+	= invoke(
+	'org.eclipse.cmf.occi.core.gen.connector.services.GenUtils', 
+	'getExtendedPackage(org.eclipse.cmf.occi.core.Type)', 
+	Sequence{type})/] 
+
+[query public getFilePath(extension : Extension) : String
+	= invoke(
+	'org.eclipse.cmf.occi.core.gen.connector.services.GenUtils', 
+	'getFilePath(org.eclipse.cmf.occi.core.Extension)', 
+	Sequence{extension})/] 
+
+[query public genMacroAnnotation(annotation : Annotation) : String
+	= invoke('org.eclipse.cmf.occi.core.gen.connector.services.MainTree', 'generatingMacroCodeAnno(org.eclipse.cmf.occi.core.Annotation)', Sequence{annotation})/] 
+
+[query public genDataTransfer(annotation : Annotation) : String
+	= invoke('org.eclipse.cmf.occi.core.gen.connector.services.MainTree', 'generatingDataTransfer(org.eclipse.cmf.occi.core.Annotation)', Sequence{annotation})/] 
+
+[comment][query public genCompoundCode(kind : Kind) : String
+	= invoke('org.eclipse.cmf.occi.core.gen.connector.services.GenCode', 'generatingConnectorCode(org.eclipse.cmf.occi.core.Kind)', Sequence{kind})/] 
+
+[query public genConnectorTypeList(annotation : Annotation) : String
+	= invoke('org.eclipse.cmf.occi.core.gen.connector.services.GenCode', 'generatingConnectorList(org.eclipse.cmf.occi.core.Annotation)', Sequence{annotation})/] 
+
+[query public genConnectorDetail(annotation : Annotation) : String
+	= invoke('org.eclipse.cmf.occi.core.gen.connector.services.GenCode', 'generatingDetailConnector(org.eclipse.cmf.occi.core.Annotation)', Sequence{annotation})/] [/comment]
+
+[query public createMainFunc() : String = 'public static void main (String[] args){'/]
+
+[query public getPackagePath(packageName : String) : String = packageName.replaceAll('\\.', '/') + '/' /]
+
+[query public getJavaTypeName(attribute : Attribute) : String
+	= invoke(
+	'org.eclipse.cmf.occi.core.gen.connector.services.GenUtils', 
+	'getJavaTypeName(org.eclipse.cmf.occi.core.Attribute)', 
+	Sequence{attribute})/]
+
+[query public getJavaAttributeName(attribute : Attribute) : String 
+	= invoke(
+	'org.eclipse.cmf.occi.core.gen.connector.services.GenUtils', 
+	'getJavaAttributeName(org.eclipse.cmf.occi.core.Attribute)', 
+	Sequence{attribute})/]

@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.eclipse.cmf.occi.core.gen.emf.ui;singleton:=t
+ rue
+Bundle-Name: %pluginName
+Bundle-Version: 1.0.0.202211101859
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.co
+ re.resources,org.eclipse.emf.ecore,org.eclipse.ui.workbench,org.eclip
+ se.jface,org.eclipse.cmf.occi.core,org.eclipse.cmf.occi.core.gen.emf,
+ org.eclipse.ocl.pivot,org.eclipse.emf.common,org.eclipse.emf.codegen.
+ ecore,org.eclipse.emf.codegen.ecore.ui,org.eclipse.equinox.registry,o
+ rg.eclipse.pde.core,org.eclipse.sirius.ui;bundle-version="4.1.2"
+Bundle-ManifestVersion: 2
+Bundle-Activator: org.eclipse.cmf.occi.core.gen.emf.ui.Activator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+

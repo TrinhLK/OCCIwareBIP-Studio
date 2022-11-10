@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.eclipse.cmf.occi.platform.editor;singleton:=t
+ rue
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.core.resources;vi
+ sibility:=reexport,org.eclipse.cmf.occi.platform.edit;visibility:=ree
+ xport,org.eclipse.emf.ecore.xmi;visibility:=reexport,org.eclipse.emf.
+ edit.ui;visibility:=reexport,org.eclipse.ui.ide;visibility:=reexport,
+ org.eclipse.cmf.occi.core.edit;visibility:=reexport
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Export-Package: org.eclipse.cmf.occi.platform.presentation
+Bundle-Name: %pluginName
+Bundle-Version: 1.0.0.202211101859
+Bundle-ClassPath: .
+Bundle-Localization: plugin
+Bundle-Activator: org.eclipse.cmf.occi.platform.presentation.PlatformE
+ ditorPlugin$Implementation
+

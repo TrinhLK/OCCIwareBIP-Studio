@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: org.eclipse.cmf.occi.monitoring.tests;singleton:=
+ true
+Export-Package: org.eclipse.cmf.occi.monitoring.tests
+Bundle-Name: %pluginName
+Bundle-Version: 1.0.0.202211101859
+Bundle-ClassPath: .
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.cmf.occi.monitori
+ ng;visibility:=reexport,org.eclipse.cmf.occi.core;visibility:=reexpor
+ t,org.eclipse.emf.ecore.xmi;visibility:=reexport,org.junit;visibility
+ :=reexport
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+
