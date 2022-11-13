@@ -1,7 +1,7 @@
 # OCCIwareBIP Studio
-OCCIwareBIP Studio is a project based on OCCI-Studio, which is a set of Eclipse plugins implementing the [current Open Cloud Computing Interface (OCCI) specification](http://occi-wg.org/about/specification/).
+OCCIwareBIP Studio is a project based on OCCIware Studio, which is a set of Eclipse plugins implementing the [current Open Cloud Computing Interface (OCCI) specification](http://occi-wg.org/about/specification/).
 
-OCCIwareBIP extends the OCCI-Studio to support developers to implement cloud applications following the exogenous approach.
+OCCIwareBIP extends the OCCIware Studio to support developers implementing cloud applications following the exogenous approach using JavaBIP.
 
 # Installation
 1. Clone the project to your local machine
