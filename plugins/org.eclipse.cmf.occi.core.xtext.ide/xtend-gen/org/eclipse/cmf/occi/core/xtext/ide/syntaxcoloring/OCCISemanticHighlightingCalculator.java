@@ -33,7 +33,7 @@ import org.eclipse.xtext.util.CancelIndicator;
 public class OCCISemanticHighlightingCalculator extends DefaultSemanticHighlightingCalculator {
   @Inject
   OCCIGrammarAccess grammar;
-
+  
   @Override
   protected boolean highlightElement(final EObject object, final IHighlightedPositionAcceptor acceptor, final CancelIndicator cancelIndicator) {
     boolean _switchResult = false;

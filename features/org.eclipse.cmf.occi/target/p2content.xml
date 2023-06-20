@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <units size='2'>
-  <unit id='org.eclipse.cmf.occi.feature.group' version='1.0.0.202211101859' singleton='false'>
-    <update id='org.eclipse.cmf.occi.feature.group' range='[0.0.0,1.0.0.202211101859)' severity='0'/>
+  <unit id='org.eclipse.cmf.occi.feature.group' version='1.0.0.202301091908' singleton='false'>
+    <update id='org.eclipse.cmf.occi.feature.group' range='[0.0.0,1.0.0.202301091908)' severity='0'/>
     <properties size='8'>
       <property name='org.eclipse.equinox.p2.name' value='OCCI Studio'/>
       <property name='org.eclipse.equinox.p2.description' value='OCCI Studio developed within the OCCIware project.'/>
@@ -13,7 +13,7 @@
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
     <provides size='1'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.feature.group' version='1.0.0.202211101859'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.feature.group' version='1.0.0.202301091908'/>
     </provides>
     <requires size='90'>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.egit.feature.group' range='5.0.1'/>
@@ -35,77 +35,77 @@
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.sirius.specifier.feature.group' range='6.0.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.xtend.sdk.feature.group' range='2.18.0'/>
       <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.xtext.sdk.feature.group' range='2.18.0'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.design' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.edit' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.editor' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.ui' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.examples' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.xtext' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.xtext.ide' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.xtext.ui' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.xtext.tests' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.xtext.ui.tests' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.emf' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.emf.ui' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.textile' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.textile.ui' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.latex' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.latex.ui' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.design' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.design.ui' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.design.extended' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.design.extended.ui' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.connector' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.connector.ui' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.uris' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.uris.ui' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.curl' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.curl.ui' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.xml' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.xml.ui' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.xml' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.xml.ui' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.alloy' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.alloy.ui' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.connector.jocci' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.infrastructure' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.infrastructure.edit' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.infrastructure.editor' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.infrastructure.tests' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.infrastructure.design' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.infrastructure.connector.dummy' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.infrastructure.example' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.crtp' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.crtp.edit' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.crtp.editor' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.crtp.tests' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.crtp.design' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.crtp.design.extended' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.crtp.connector.dummy' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.crtp.example' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.monitoring' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.monitoring.edit' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.monitoring.editor' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.monitoring.tests' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.monitoring.design' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.monitoring.connector.dummy' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.monitoring.example' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.platform' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.platform.edit' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.platform.editor' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.platform.tests' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.platform.design' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.platform.connector.dummy' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.platform.example' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.sla' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.sla.edit' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.sla.editor' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.sla.design' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.sla.tests' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.sla.connector.dummy' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.sla.example' range='[1.0.0.202211101859,1.0.0.202211101859]'/>
-      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.feature.jar' range='[1.0.0.202211101859,1.0.0.202211101859]'>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.design' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.edit' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.editor' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.ui' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.examples' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.xtext' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.xtext.ide' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.xtext.ui' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.xtext.tests' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.xtext.ui.tests' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.emf' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.emf.ui' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.textile' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.textile.ui' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.latex' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.latex.ui' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.design' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.design.ui' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.design.extended' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.design.extended.ui' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.connector' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.connector.ui' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.uris' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.uris.ui' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.curl' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.curl.ui' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.xml' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.xml.ui' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.xml' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.xml.ui' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.alloy' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.gen.alloy.ui' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.connector.jocci' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.infrastructure' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.infrastructure.edit' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.infrastructure.editor' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.infrastructure.tests' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.infrastructure.design' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.infrastructure.connector.dummy' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.infrastructure.example' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.crtp' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.crtp.edit' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.crtp.editor' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.crtp.tests' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.crtp.design' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.crtp.design.extended' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.crtp.connector.dummy' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.crtp.example' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.monitoring' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.monitoring.edit' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.monitoring.editor' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.monitoring.tests' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.monitoring.design' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.monitoring.connector.dummy' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.monitoring.example' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.platform' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.platform.edit' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.platform.editor' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.platform.tests' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.platform.design' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.platform.connector.dummy' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.platform.example' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.sla' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.sla.edit' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.sla.editor' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.sla.design' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.sla.tests' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.sla.connector.dummy' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.sla.example' range='[1.0.0.202301091908,1.0.0.202301091908]'/>
+      <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.feature.jar' range='[1.0.0.202301091908,1.0.0.202301091908]'>
         <filter>
           (org.eclipse.update.install.features=true)
         </filter>
@@ -121,7 +121,7 @@
       Copyright (c) 2015-2017 Obeo, Inria
     </copyright>
   </unit>
-  <unit id='org.eclipse.cmf.occi.feature.jar' version='1.0.0.202211101859'>
+  <unit id='org.eclipse.cmf.occi.feature.jar' version='1.0.0.202301091908'>
     <properties size='7'>
       <property name='org.eclipse.equinox.p2.name' value='OCCI Studio'/>
       <property name='org.eclipse.equinox.p2.description' value='OCCI Studio developed within the OCCIware project.'/>
@@ -132,15 +132,15 @@
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
     <provides size='3'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.feature.jar' version='1.0.0.202211101859'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.feature.jar' version='1.0.0.202301091908'/>
       <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
-      <provided namespace='org.eclipse.update.feature' name='org.eclipse.cmf.occi' version='1.0.0.202211101859'/>
+      <provided namespace='org.eclipse.update.feature' name='org.eclipse.cmf.occi' version='1.0.0.202301091908'/>
     </provides>
     <filter>
       (org.eclipse.update.install.features=true)
     </filter>
     <artifacts size='1'>
-      <artifact classifier='org.eclipse.update.feature' id='org.eclipse.cmf.occi' version='1.0.0.202211101859'/>
+      <artifact classifier='org.eclipse.update.feature' id='org.eclipse.cmf.occi' version='1.0.0.202301091908'/>
     </artifacts>
     <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
     <touchpointData size='1'>

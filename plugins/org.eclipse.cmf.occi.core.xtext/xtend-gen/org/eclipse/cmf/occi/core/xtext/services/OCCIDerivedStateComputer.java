@@ -52,7 +52,7 @@ public class OCCIDerivedStateComputer implements IDerivedStateComputer {
       }
     }
   }
-
+  
   @Override
   public void installDerivedState(final DerivedStateAwareResource resource, final boolean preLinkingPhase) {
     boolean _isEmpty = resource.getContents().isEmpty();
@@ -128,7 +128,7 @@ public class OCCIDerivedStateComputer implements IDerivedStateComputer {
     };
     IteratorExtensions.<EObject>forEach(resource.getAllContents(), _function);
   }
-
+  
   public EObject getEObjectfromEProxy(final EObject model, final EObject target) {
     boolean _eIsProxy = target.eIsProxy();
     if (_eIsProxy) {

@@ -24,7 +24,7 @@ public class OCCIStandaloneSetup extends OCCIStandaloneSetupGenerated {
   public static void doSetup() {
     new OCCIStandaloneSetup().createInjectorAndDoEMFRegistration();
   }
-
+  
   @Override
   public void register(final Injector injector) {
     boolean _containsKey = EPackage.Registry.INSTANCE.containsKey(OCCIPackage.eNS_URI);

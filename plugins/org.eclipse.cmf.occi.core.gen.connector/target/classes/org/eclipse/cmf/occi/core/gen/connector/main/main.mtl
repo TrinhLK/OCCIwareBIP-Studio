@@ -211,7 +211,7 @@ import [action.eContainer().oclAsType(Type).getExtendedPackage()/].[getJavaTypeN
 // [/protected]
 [if (type.oclIsTypeOf(Kind))]
 [for (action : Action | type.oclAsType(Kind).actions->union(type.oclAsType(Kind)->closure(parent)->collect(k|k.actions))) separator(', ')]
-[if (action.title.toString().equalsIgnoreCase('spontaneous'))]
+[if (action.actiontype.toString().equalsIgnoreCase('spontaneous'))]
 @Port(name = "[action.name/]", type = PortType.spontaneous)
 [comment], @Port(name = "[action.term.substring(action.term.indexOf('s_') + 2)/]", type = PortType.enforceable)[/comment]
 [else]
@@ -220,7 +220,7 @@ import [action.eContainer().oclAsType(Type).getExtendedPackage()/].[getJavaTypeN
 [/for]
 [else]
 [for (action : Action | type.oclAsType(Mixin).getAllDependsOnMixins()->collect(m|m.oclAsType(Mixin).actions)) separator(', ')]
-[if (action.title.toString().equalsIgnoreCase('spontaneous'))]
+[if (action.actiontype.toString().equalsIgnoreCase('spontaneous'))]
 @Port(name = "[action.name/]", type = PortType.spontaneous)
 [comment], @Port(name = "[action.term.substring(action.term.indexOf('s_') + 2)/]", type = PortType.enforceable)[/comment]
 [else]

@@ -1,17 +1,17 @@
 Manifest-Version: 1.0
-Bundle-SymbolicName: org.eclipse.cmf.occi.core.gen.curl.ui;singleton:=
- true
-Bundle-Name: %pluginName
-Bundle-Version: 1.0.0.202211101859
-Bundle-Localization: plugin
-Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.co
- re.resources, org.eclipse.cmf.occi.core.gen.curl,org.eclipse.emf.ecor
- e,org.eclipse.emf.ecore.xmi,org.eclipse.ocl,org.eclipse.ocl.ecore,org
- .eclipse.acceleo.model,org.eclipse.acceleo.engine
 Bundle-ManifestVersion: 2
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.cmf.occi.core.gen.curl.ui;singleton:=tr
+ ue
+Bundle-Version: 1.0.0.202301091908
 Bundle-Activator: org.eclipse.cmf.occi.core.gen.curl.ui.Activator
+Bundle-Vendor: %providerName
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.core
+ .resources, org.eclipse.cmf.occi.core.gen.curl,org.eclipse.emf.ecore,or
+ g.eclipse.emf.ecore.xmi,org.eclipse.ocl,org.eclipse.ocl.ecore,org.eclip
+ se.acceleo.model,org.eclipse.acceleo.engine
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
-Bundle-Vendor: %providerName
 Eclipse-LazyStart: true
 

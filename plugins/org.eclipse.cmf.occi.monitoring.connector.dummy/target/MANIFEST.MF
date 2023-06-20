@@ -1,15 +1,15 @@
 Manifest-Version: 1.0
-Bundle-SymbolicName: org.eclipse.cmf.occi.monitoring.connector.dummy;s
- ingleton:=true
-Export-Package: org.eclipse.cmf.occi.monitoring.connector.dummy
-Bundle-Name: %pluginName
-Bundle-Version: 1.0.0.202211101859
-Bundle-Localization: plugin
-Bundle-ClassPath: .
-Require-Bundle: org.slf4j.api,org.eclipse.cmf.occi.core,org.eclipse.cm
- f.occi.monitoring
 Bundle-ManifestVersion: 2
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.cmf.occi.monitoring.connector.dummy;sin
+ gleton:=true
+Bundle-Version: 1.0.0.202301091908
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Bundle-Vendor: %providerName
+Require-Bundle: org.slf4j.api,org.eclipse.cmf.occi.core,org.eclipse.cmf.
+ occi.monitoring
+Export-Package: org.eclipse.cmf.occi.monitoring.connector.dummy
 

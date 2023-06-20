@@ -28,16 +28,16 @@ public class OCCIUiModule extends AbstractOCCIUiModule {
   public Class<? extends XtextDocumentProvider> bindXtextDocumentProvider() {
     return OCCIDocumentProvider.class;
   }
-
+  
   @Override
   public Class<? extends IResourceForEditorInputFactory> bindIResourceForEditorInputFactory() {
     return OCCIResourceForEditorInputFactory.class;
   }
-
+  
   public Class<? extends ISemanticHighlightingCalculator> bindISemanticHighlightingCalculator() {
     return OCCISemanticHighlightingCalculator.class;
   }
-
+  
   public OCCIUiModule(final AbstractUIPlugin plugin) {
     super(plugin);
   }

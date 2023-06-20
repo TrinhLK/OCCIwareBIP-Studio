@@ -15,7 +15,7 @@
 <feature
       id="org.eclipse.cmf.occi"
       label="OCCI Studio"
-      version="1.0.0.202211101859"
+      version="1.0.0.202301091908"
       provider-name="OCCIware">
 
    <description url="http://www.occiware.org">
@@ -249,492 +249,492 @@ litigation.
 
    <plugin
          id="org.eclipse.cmf.occi.core"
-         download-size="2594"
-         install-size="4479"
-         version="1.0.0.202211101859"
+         download-size="2595"
+         install-size="4482"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.design"
          download-size="64"
          install-size="232"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.edit"
          download-size="113"
          install-size="217"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.editor"
          download-size="64"
          install-size="123"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.ui"
          download-size="20"
          install-size="39"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.examples"
          download-size="24"
          install-size="45"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.xtext"
-         download-size="261"
-         install-size="672"
-         version="1.0.0.202211101859"
+         download-size="297"
+         install-size="708"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.xtext.ide"
          download-size="157"
          install-size="688"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.xtext.ui"
          download-size="41"
          install-size="88"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.xtext.tests"
-         download-size="18"
-         install-size="27"
-         version="1.0.0.202211101859"
+         download-size="23"
+         install-size="33"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.xtext.ui.tests"
          download-size="4"
          install-size="3"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.emf"
          download-size="18"
          install-size="38"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.emf.ui"
          download-size="14"
          install-size="25"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.textile"
          download-size="25"
          install-size="325"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.textile.ui"
          download-size="10"
          install-size="13"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.latex"
          download-size="28"
          install-size="371"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.latex.ui"
-         download-size="9"
+         download-size="10"
          install-size="13"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.design"
          download-size="96"
          install-size="1651"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.design.ui"
          download-size="13"
          install-size="24"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.design.extended"
          download-size="100"
          install-size="1721"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.design.extended.ui"
          download-size="14"
          install-size="26"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.connector"
          download-size="58"
          install-size="481"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.connector.ui"
          download-size="28"
          install-size="54"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.uris"
          download-size="15"
          install-size="146"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.uris.ui"
          download-size="10"
          install-size="13"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.curl"
          download-size="16"
          install-size="138"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.curl.ui"
          download-size="9"
          install-size="13"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.xml"
          download-size="17"
          install-size="145"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.xml.ui"
          download-size="10"
          install-size="13"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.xml"
          download-size="17"
          install-size="145"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.xml.ui"
          download-size="10"
          install-size="13"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.alloy"
          download-size="39"
          install-size="554"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.gen.alloy.ui"
          download-size="9"
          install-size="12"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.core.connector.jocci"
          download-size="2740"
          install-size="3130"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.infrastructure"
          download-size="627"
          install-size="891"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.infrastructure.edit"
          download-size="38"
          install-size="79"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.infrastructure.editor"
          download-size="65"
          install-size="129"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.infrastructure.tests"
          download-size="16"
          install-size="26"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.infrastructure.design"
          download-size="10"
          install-size="129"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.infrastructure.connector.dummy"
          download-size="14"
          install-size="21"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.infrastructure.example"
          download-size="880"
          install-size="1231"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.crtp"
          download-size="1351"
          install-size="1868"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.crtp.edit"
          download-size="23"
          install-size="44"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.crtp.editor"
          download-size="63"
          install-size="122"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.crtp.tests"
          download-size="11"
          install-size="17"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.crtp.design"
          download-size="7"
          install-size="19"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.crtp.design.extended"
          download-size="13"
          install-size="202"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.crtp.connector.dummy"
          download-size="4"
          install-size="3"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.crtp.example"
          download-size="4"
          install-size="69"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.monitoring"
          download-size="1248"
          install-size="1706"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.monitoring.edit"
          download-size="17"
          install-size="32"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.monitoring.editor"
          download-size="65"
          install-size="126"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.monitoring.tests"
          download-size="11"
          install-size="16"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.monitoring.design"
          download-size="8"
          install-size="44"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.monitoring.connector.dummy"
          download-size="8"
          install-size="9"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.monitoring.example"
          download-size="713"
          install-size="1052"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.platform"
          download-size="1505"
          install-size="1959"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.platform.edit"
          download-size="24"
          install-size="46"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.platform.editor"
          download-size="64"
          install-size="125"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.platform.tests"
          download-size="12"
          install-size="19"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.platform.design"
          download-size="9"
          install-size="65"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.platform.connector.dummy"
          download-size="10"
          install-size="13"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.platform.example"
          download-size="817"
          install-size="1192"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.sla"
          download-size="1608"
          install-size="2071"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.sla.edit"
          download-size="16"
          install-size="30"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.sla.editor"
          download-size="63"
          install-size="121"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.sla.design"
          download-size="8"
          install-size="46"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.sla.tests"
          download-size="10"
          install-size="14"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.sla.connector.dummy"
          download-size="7"
          install-size="9"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.cmf.occi.sla.example"
          download-size="729"
          install-size="1039"
-         version="1.0.0.202211101859"
+         version="1.0.0.202301091908"
          unpack="false"/>
 
 </feature>

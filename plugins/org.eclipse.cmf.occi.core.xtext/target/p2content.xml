@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <units size='1'>
-  <unit id='org.eclipse.cmf.occi.core.xtext' version='1.0.0.202211101859' generation='2'>
-    <update id='org.eclipse.cmf.occi.core.xtext' range='[0.0.0,1.0.0.202211101859)' severity='0'/>
+  <unit id='org.eclipse.cmf.occi.core.xtext' version='1.0.0.202301091908' generation='2'>
+    <update id='org.eclipse.cmf.occi.core.xtext' range='[0.0.0,1.0.0.202301091908)' severity='0'/>
     <properties size='8'>
       <property name='df_LT.pluginName' value='OCCI Core Xtext'/>
       <property name='df_LT.providerName' value='www.occiware.org'/>
@@ -13,8 +13,8 @@
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
     <provides size='15'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.xtext' version='1.0.0.202211101859'/>
-      <provided namespace='osgi.bundle' name='org.eclipse.cmf.occi.core.xtext' version='1.0.0.202211101859'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.cmf.occi.core.xtext' version='1.0.0.202301091908'/>
+      <provided namespace='osgi.bundle' name='org.eclipse.cmf.occi.core.xtext' version='1.0.0.202301091908'/>
       <provided namespace='java.package' name='org.eclipse.cmf.occi.core.xtext.parser.antlr' version='0.0.0'/>
       <provided namespace='java.package' name='org.eclipse.cmf.occi.core.xtext' version='0.0.0'/>
       <provided namespace='java.package' name='org.eclipse.cmf.occi.core.xtext.scoping' version='0.0.0'/>
@@ -25,7 +25,7 @@
       <provided namespace='java.package' name='org.eclipse.cmf.occi.core.xtext.validation' version='0.0.0'/>
       <provided namespace='java.package' name='org.eclipse.cmf.occi.core.xtext.formatting' version='0.0.0'/>
       <provided namespace='java.package' name='org.eclipse.cmf.occi.core.xtext.formatting2' version='0.0.0'/>
-      <provided namespace='osgi.identity' name='org.eclipse.cmf.occi.core.xtext' version='1.0.0.202211101859'>
+      <provided namespace='osgi.identity' name='org.eclipse.cmf.occi.core.xtext' version='1.0.0.202301091908'>
         <properties size='1'>
           <property name='type' value='osgi.bundle'/>
         </properties>
@@ -49,13 +49,13 @@
       <requiredProperties namespace='osgi.ee' match='(&amp;(osgi.ee=JavaSE)(version=1.8))'/>
     </requires>
     <artifacts size='1'>
-      <artifact classifier='osgi.bundle' id='org.eclipse.cmf.occi.core.xtext' version='1.0.0.202211101859'/>
+      <artifact classifier='osgi.bundle' id='org.eclipse.cmf.occi.core.xtext' version='1.0.0.202301091908'/>
     </artifacts>
     <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
     <touchpointData size='1'>
       <instructions size='1'>
         <instruction key='manifest'>
-          Bundle-SymbolicName: org.eclipse.cmf.occi.core.xtext; singleton:=true&#xA;Bundle-Version: 1.0.0.202211101859&#xA;
+          Bundle-SymbolicName: org.eclipse.cmf.occi.core.xtext; singleton:=true&#xA;Bundle-Version: 1.0.0.202301091908&#xA;
         </instruction>
       </instructions>
     </touchpointData>

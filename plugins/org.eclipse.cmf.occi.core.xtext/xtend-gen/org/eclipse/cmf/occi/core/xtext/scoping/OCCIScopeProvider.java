@@ -119,7 +119,7 @@ public class OCCIScopeProvider extends AbstractOCCIScopeProvider {
     }
     return _xblockexpression;
   }
-
+  
   public SimpleScope scope_Link_target(final Link link, final EReference reference) {
     SimpleScope _xblockexpression = null;
     {
@@ -135,7 +135,7 @@ public class OCCIScopeProvider extends AbstractOCCIScopeProvider {
     }
     return _xblockexpression;
   }
-
+  
   public SimpleScope scope_Link_kind(final Link link, final EReference reference) {
     SimpleScope _xblockexpression = null;
     {
@@ -154,7 +154,7 @@ public class OCCIScopeProvider extends AbstractOCCIScopeProvider {
     }
     return _xblockexpression;
   }
-
+  
   public SimpleScope scope_MixinBase_mixin(final MixinBase base, final EReference reference) {
     SimpleScope _xblockexpression = null;
     {
@@ -187,7 +187,7 @@ public class OCCIScopeProvider extends AbstractOCCIScopeProvider {
     }
     return _xblockexpression;
   }
-
+  
   public SimpleScope scope_Resource_kind(final Resource resource, final EReference reference) {
     SimpleScope _xblockexpression = null;
     {
@@ -205,7 +205,7 @@ public class OCCIScopeProvider extends AbstractOCCIScopeProvider {
     }
     return _xblockexpression;
   }
-
+  
   public SimpleScope scope_Transition_action(final Transition transition, final EReference reference) {
     ArrayList<IEObjectDescription> res = new ArrayList<IEObjectDescription>();
     EObject _eContainer = transition.eContainer();
@@ -220,7 +220,7 @@ public class OCCIScopeProvider extends AbstractOCCIScopeProvider {
     }
     return new SimpleScope(IScope.NULLSCOPE, res);
   }
-
+  
   public SimpleScope scope_Transition_target(final Transition transition, final EReference reference) {
     SimpleScope _xblockexpression = null;
     {
@@ -244,7 +244,7 @@ public class OCCIScopeProvider extends AbstractOCCIScopeProvider {
     }
     return _xblockexpression;
   }
-
+  
   public SimpleScope scope_State_literal(final State state, final EReference reference) {
     SimpleScope _xblockexpression = null;
     {
@@ -269,7 +269,7 @@ public class OCCIScopeProvider extends AbstractOCCIScopeProvider {
     }
     return _xblockexpression;
   }
-
+  
   public SimpleScope scope_FSM_attribute(final FSM fsm, final EReference reference) {
     SimpleScope _xblockexpression = null;
     {
@@ -284,7 +284,7 @@ public class OCCIScopeProvider extends AbstractOCCIScopeProvider {
     }
     return _xblockexpression;
   }
-
+  
   public SimpleScope scope_Mixin_applies(final Mixin mixin, final EReference reference) {
     SimpleScope _xblockexpression = null;
     {
@@ -306,7 +306,7 @@ public class OCCIScopeProvider extends AbstractOCCIScopeProvider {
     }
     return _xblockexpression;
   }
-
+  
   public SimpleScope scope_Mixin_depends(final Mixin mixin, final EReference reference) {
     SimpleScope _xblockexpression = null;
     {
@@ -328,15 +328,15 @@ public class OCCIScopeProvider extends AbstractOCCIScopeProvider {
     }
     return _xblockexpression;
   }
-
+  
   public IScope scope_Configuration_use(final Configuration config, final EReference ref) {
     return this.scopeForExtensions(config.getUse());
   }
-
+  
   public IScope scope_Extension_import(final Extension ext, final EReference ref) {
     return this.scopeForExtensions(ext.getImport());
   }
-
+  
   public IScope scopeForExtensions(final EList<Extension> extensions) {
     SimpleScope _xblockexpression = null;
     {
@@ -348,7 +348,7 @@ public class OCCIScopeProvider extends AbstractOCCIScopeProvider {
     }
     return _xblockexpression;
   }
-
+  
   public IScope scopeForKind(final Kind kind, final EReference ref) {
     SimpleScope _xblockexpression = null;
     {
@@ -370,7 +370,7 @@ public class OCCIScopeProvider extends AbstractOCCIScopeProvider {
     }
     return _xblockexpression;
   }
-
+  
   public IScope scope_ArrayType_type(final ArrayType arrayType, final EReference ref) {
     SimpleScope _xblockexpression = null;
     {
@@ -392,7 +392,7 @@ public class OCCIScopeProvider extends AbstractOCCIScopeProvider {
     }
     return _xblockexpression;
   }
-
+  
   public IScope scope_Attribute_type(final Attribute attribute, final EReference ref) {
     SimpleScope _xifexpression = null;
     EObject _eContainer = attribute.eContainer();
@@ -420,7 +420,7 @@ public class OCCIScopeProvider extends AbstractOCCIScopeProvider {
     }
     return _xifexpression;
   }
-
+  
   public ArrayList<IEObjectDescription> getTypes(final Extension ext) {
     ArrayList<IEObjectDescription> _xblockexpression = null;
     {

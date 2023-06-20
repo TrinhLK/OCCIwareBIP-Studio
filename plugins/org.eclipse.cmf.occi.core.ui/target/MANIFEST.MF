@@ -1,16 +1,16 @@
 Manifest-Version: 1.0
-Bundle-SymbolicName: org.eclipse.cmf.occi.core.ui;singleton:=true
-Export-Package: org.eclipse.cmf.occi.core.ui.popup.actions
-Bundle-Name: %pluginName
-Bundle-Version: 1.0.0.202211101859
-Bundle-Localization: plugin
-Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.co
- re.resources,org.eclipse.emf.common,org.eclipse.emf.ecore,org.eclipse
- .cmf.occi.core,org.eclipse.sirius,org.eclipse.sirius.ext.base,org.ecl
- ipse.pde.core,org.eclipse.epsilon.emf.dt
 Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-Localization: plugin
+Bundle-SymbolicName: org.eclipse.cmf.occi.core.ui;singleton:=true
+Bundle-Version: 1.0.0.202301091908
 Bundle-Activator: org.eclipse.cmf.occi.core.ui.Activator
+Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.core
+ .resources,org.eclipse.emf.common,org.eclipse.emf.ecore,org.eclipse.cmf
+ .occi.core,org.eclipse.sirius,org.eclipse.sirius.ext.base,org.eclipse.p
+ de.core,org.eclipse.epsilon.emf.dt
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipse.cmf.occi.core.ui.popup.actions
 Bundle-Vendor: %providerName
 

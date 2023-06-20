@@ -42,11 +42,11 @@ public class OCCIParsingTest {
   @Inject
   @Extension
   private ParseHelper<org.eclipse.cmf.occi.core.Extension> parseHelper;
-
+  
   @Inject
   @Extension
   private ValidationTestHelper _validationTestHelper;
-
+  
   @Test
   public void testCorrectParsing() {
     try {
@@ -161,7 +161,7 @@ public class OCCIParsingTest {
       throw Exceptions.sneakyThrow(_e);
     }
   }
-
+  
   @Test
   public void loadModel() {
     try {

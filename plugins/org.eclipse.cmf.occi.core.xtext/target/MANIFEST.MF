@@ -1,23 +1,23 @@
 Manifest-Version: 1.0
-Bundle-SymbolicName: org.eclipse.cmf.occi.core.xtext; singleton:=true
-Export-Package: org.eclipse.cmf.occi.core.xtext.parser.antlr,org.eclip
- se.cmf.occi.core.xtext,org.eclipse.cmf.occi.core.xtext.scoping,org.ec
- lipse.cmf.occi.core.xtext.generator,org.eclipse.cmf.occi.core.xtext.s
- erializer,org.eclipse.cmf.occi.core.xtext.parser.antlr.internal,org.e
- clipse.cmf.occi.core.xtext.services,org.eclipse.cmf.occi.core.xtext.v
- alidation,org.eclipse.cmf.occi.core.xtext.formatting,org.eclipse.cmf.
- occi.core.xtext.formatting2
-Bundle-Name: %pluginName
-Bundle-Version: 1.0.0.202211101859
-Bundle-Localization: plugin
-Require-Bundle: org.eclipse.cmf.occi.core;bundle-version="1.0.0",org.e
- clipse.xtext,org.eclipse.xtext.xbase,org.eclipse.equinox.common;bundl
- e-version="3.5.0",org.eclipse.xtext.xbase.lib,org.antlr.runtime,org.e
- clipse.xtext.util,org.eclipse.xtend.lib,org.eclipse.xtext.generator,o
- rg.eclipse.emf.mwe2.launch,org.apache.commons.logging
 Bundle-ManifestVersion: 2
-Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
 Bundle-Vendor: %providerName
+Bundle-Version: 1.0.0.202301091908
+Bundle-SymbolicName: org.eclipse.cmf.occi.core.xtext; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.cmf.occi.core;bundle-version="1.0.0",org.ecl
+ ipse.xtext,org.eclipse.xtext.xbase,org.eclipse.equinox.common;bundle-ve
+ rsion="3.5.0",org.eclipse.xtext.xbase.lib,org.antlr.runtime,org.eclipse
+ .xtext.util,org.eclipse.xtend.lib,org.eclipse.xtext.generator,org.eclip
+ se.emf.mwe2.launch,org.apache.commons.logging
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.eclipse.cmf.occi.core.xtext.parser.antlr,org.eclipse
+ .cmf.occi.core.xtext,org.eclipse.cmf.occi.core.xtext.scoping,org.eclips
+ e.cmf.occi.core.xtext.generator,org.eclipse.cmf.occi.core.xtext.seriali
+ zer,org.eclipse.cmf.occi.core.xtext.parser.antlr.internal,org.eclipse.c
+ mf.occi.core.xtext.services,org.eclipse.cmf.occi.core.xtext.validation,
+ org.eclipse.cmf.occi.core.xtext.formatting,org.eclipse.cmf.occi.core.xt
+ ext.formatting2
 Import-Package: org.apache.log4j
 

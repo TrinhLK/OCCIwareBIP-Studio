@@ -37,33 +37,33 @@ public class OCCIRuntimeModule extends AbstractOCCIRuntimeModule {
   public Class<? extends ILinker> bindILinker() {
     return OCCILinker.class;
   }
-
+  
   @Override
   public Class<? extends ITransientValueService> bindITransientValueService() {
     return OCCITransientValueService.class;
   }
-
+  
   public Class<? extends org.eclipse.xtext.serializer.sequencer.ITransientValueService> bindITransientValueServiceOld() {
     return OCCICustomLegacyTransientValueService.class;
   }
-
+  
   @Override
   public Class<? extends IAstFactory> bindIAstFactory() {
     return CustomDefaultEcoreElementFactory.class;
   }
-
+  
   public Class<? extends ICrossReferenceSerializer> bindICrossReferenceSerializer() {
     return OCCICrossReferenceSerializer.class;
   }
-
+  
   public Class<? extends IDerivedStateComputer> bindIDerivedStateComputer() {
     return OCCIDerivedStateComputer.class;
   }
-
+  
   public Class<? extends IResourceDescription.Manager> bindIResourceDescription$Manager() {
     return DerivedStateAwareResourceDescriptionManager.class;
   }
-
+  
   @Override
   public Class<? extends XtextResource> bindXtextResource() {
     return DerivedStateAwareResource.class;
