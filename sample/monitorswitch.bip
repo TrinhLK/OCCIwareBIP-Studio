@@ -1,8 +1,12 @@
 package monitorswitch
     port type Port()
+
     atom type Switch()
+    	...
     end
+    
     ...
+
     connector type switchServer_3_root_define(Port p1, Port p2)
 		define p1 p2 
 	end
